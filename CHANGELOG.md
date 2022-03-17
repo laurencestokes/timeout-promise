@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/LaurenceStokes/timeout-promise/compare/v1.0.1...v1.1.0) (2022-03-17)
+
+
+### Features
+
+* updates to export types before publishing to npm ([127ced5](https://github.com/LaurenceStokes/timeout-promise/commit/127ced569e8b39dd94184199105fe03773abd791))
+
+
+
 ## [1.0.1](https://github.com/LaurenceStokes/timeout-promise/compare/v1.0.0...v1.0.1) (2022-03-17)
 
 
