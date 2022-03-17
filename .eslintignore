@@ -1,0 +1,6 @@
+# .estlintignore file
+
+dist/
+coverage/
+badges/
+node_modules/
