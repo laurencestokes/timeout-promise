@@ -2,6 +2,8 @@
     "name": "timeout-promise",
     "version": "1.0.1",
     "private": false,
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "scripts": {
         "build": "tsc --project tsconfig.json",
         "lint": "eslint --ignore-path .eslintignore --ext .js,.ts,.tsx .",

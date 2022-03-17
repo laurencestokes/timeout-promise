@@ -15,7 +15,8 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "jsx": "preserve",
-        "types": ["jest", "node"]
+        "types": ["jest", "node"],
+        "declaration": true,
     },
     "include": ["**/*.ts", "jest.config.js"],
     "exclude": ["node_modules"]
