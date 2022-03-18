@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/LaurenceStokes/timeout-promise/compare/v1.1.0...v1.1.1) (2022-03-18)
+
+
+### Features
+
+* updated name to promise-race-ts due to npm package name clash ([923b141](https://github.com/LaurenceStokes/timeout-promise/commit/923b1410f30e5dbccbde05361ed941301dba28ba))
+
+
+
 # [1.1.0](https://github.com/LaurenceStokes/timeout-promise/compare/v1.0.1...v1.1.0) (2022-03-17)
 
 
