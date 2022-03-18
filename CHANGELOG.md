@@ -1,3 +1,12 @@
+# [2.1.0](https://github.com/LaurenceStokes/timeout-promise/compare/v2.0.0...v2.1.0) (2022-03-18)
+
+
+### Bug Fixes
+
+* more fixes for publishing ([f18583e](https://github.com/LaurenceStokes/timeout-promise/commit/f18583e3d08a0d4ae593efbc9bbca939dcaf456a))
+
+
+
 # [2.0.0](https://github.com/LaurenceStokes/timeout-promise/compare/v1.1.1...v2.0.0) (2022-03-18)
 
 
