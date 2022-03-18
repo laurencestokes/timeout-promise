@@ -21,6 +21,7 @@
         "test:readme-badges": "npm run test:badges && jest-coverage-badges output badges",
         "prepublish": "tsc"
     },
+    "files": ["dist/*.js", "dist/**/*.js"],
     "dependencies": {},
     "devDependencies": {
         "@types/jest": "^27.4.1",
