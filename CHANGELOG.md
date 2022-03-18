@@ -1,3 +1,12 @@
+# [2.0.0](https://github.com/LaurenceStokes/timeout-promise/compare/v1.1.1...v2.0.0) (2022-03-18)
+
+
+### Bug Fixes
+
+* fixed issue with tsconfig having noEmit true and general changes for publishing to npm ([136350b](https://github.com/LaurenceStokes/timeout-promise/commit/136350bf50d9c42a6a1380e70ec08da4f0d2dc6a))
+
+
+
 ## [1.1.1](https://github.com/LaurenceStokes/timeout-promise/compare/v1.1.0...v1.1.1) (2022-03-18)
 
 
