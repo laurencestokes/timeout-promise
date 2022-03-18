@@ -4,14 +4,34 @@
 
 <br/>
 <p align="center">
-    <img src="readme-gif.gif" alt="The flash gif">
+    <img src="https://raw.githubusercontent.com/LaurenceStokes/timeout-promise/main/readme-gif.gif" alt="The flash gif">
 </p>
 
 <br />
 
-## 🚀 How to use
+<p align="center">
+    <a href="https://github.com/LaurenceStokes/timeout-promise/actions/workflows/validate.yml" target="_blank">
+        <img src="https://github.com/LaurenceStokes/timeout-promise/actions/workflows/validate.yml/badge.svg" alt="CI pipeline badge">
+    </a>
+</p>
+
+## 🚀 Quick start guide
 
 <hr />
+
+## Installing
+
+```
+npm i promise-race-typescript
+```
+
+## Importing
+
+```ts
+import { timeoutPromise } from 'promise-race-typescript';
+```
+
+## Usage
 
 You can race single promises, promise.all, promise.allSettled with the utility. You can combine it with promise.allSettled
 if you don't want to reject the promise.allSettled array of promises but be aware the failure was a timeout in the given promise in the future
