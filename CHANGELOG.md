@@ -1,3 +1,12 @@
+# [2.2.0](https://github.com/LaurenceStokes/timeout-promise/compare/v2.1.0...v2.2.0) (2022-03-18)
+
+
+### Bug Fixes
+
+* added files to package.json to only publish dist ([b0c6cfe](https://github.com/LaurenceStokes/timeout-promise/commit/b0c6cfeee40a723ae654f3222c6971e6d5ee617f))
+
+
+
 # [2.1.0](https://github.com/LaurenceStokes/timeout-promise/compare/v2.0.0...v2.1.0) (2022-03-18)
 
 
