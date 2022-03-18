@@ -1,6 +1,6 @@
 {
     "name": "promise-race-ts",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "private": false,
     "main": "dist/timeout-promise.js",
     "types": "dist/timeout-promise.d.ts",
@@ -21,7 +21,10 @@
         "test:readme-badges": "npm run test:badges && jest-coverage-badges output badges",
         "prepublish": "tsc"
     },
-    "files": ["dist/*.js", "dist/**/*.js"],
+    "files": [
+        "dist/*.js",
+        "dist/**/*.js"
+    ],
     "dependencies": {},
     "devDependencies": {
         "@types/jest": "^27.4.1",
