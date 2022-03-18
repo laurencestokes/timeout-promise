@@ -2,8 +2,8 @@
     "name": "promise-race-ts",
     "version": "2.0.0",
     "private": false,
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "main": "dist/timeout-promise.js",
+    "types": "dist/timeout-promise.d.ts",
     "scripts": {
         "build": "tsc --project tsconfig.json",
         "lint": "eslint --ignore-path .eslintignore --ext .js,.ts,.tsx .",
