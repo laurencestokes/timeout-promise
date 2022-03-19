@@ -1,3 +1,12 @@
+## [2.1.2](https://github.com/LaurenceStokes/timeout-promise/compare/v2.1.1...v2.1.2) (2022-03-19)
+
+
+### Documentation
+
+* fixed one outstanding issue with readme with html/markdown clash and added spaces ([3991dbe](https://github.com/LaurenceStokes/timeout-promise/commit/3991dbeb828b1b1ff54a05e5e72dc79f04cc39b7))
+
+
+
 ## [2.1.1](https://github.com/LaurenceStokes/timeout-promise/compare/v2.1.0...v2.1.1) (2022-03-19)
 
 
