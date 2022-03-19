@@ -39,8 +39,7 @@ import { timeoutPromise } from 'promise-race-typescript';
 ## Usage
 
 You can race single promises, promise.all, promise.allSettled with the utility. You can combine it with promise.allSettled
-if you don't want to reject the promise.allSettled array of promises but be aware the failure was a timeout in the given promise in the future
-array of promises. Some examples are presented below:
+if you don't want to reject the promise.allSettled array of promises but be aware the failure was a timeout in one of the promises in the given array of promises. Some examples are presented below:
 
 ### Typing the returned promise using Typescript generics
 
