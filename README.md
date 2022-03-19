@@ -80,6 +80,8 @@ Some examples are presented below:
 
 ### Typing the returned promise using Typescript generics
 
+<br />
+
 ```ts
 const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000)) as Promise<string>;
 await timeoutPromise<number>({ promise, timeout: 2000, message: 'foo' })); // compile time error (Promise<number> cannot be assigned to type Promise<string>)
@@ -88,6 +90,8 @@ await timeoutPromise<number>({ promise, timeout: 2000, message: 'foo' })); // co
 <div id='id-section1-3-2'></div>
 
 ### Single Promise
+
+<br />
 
 ```ts
 const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000));
@@ -98,7 +102,10 @@ await timeoutPromise({ promise, timeout: 10000, message: 'foo' })); // resolves 
 ```
 
 <div id='id-section1-3-3'></div>
+
 ### Promise.all
+
+<br />
 
 ```ts
 const promises = [1, 2, 3].map(
@@ -127,6 +134,8 @@ await timeoutPromise({
 <div id='id-section1-3-4'></div>
 
 ### Promise.allSettled
+
+<br />
 
 ```ts
 const promises = [1, 2, 3].map(
@@ -169,6 +178,8 @@ const foo = await timeoutPromise({
 <div id='id-section1-3-5'></div>
 
 ### Combining timeoutPromise with Promise.allSettled
+
+<br />
 
 ```ts
 const promises = [1, 2, 3, 4, 5].map(
@@ -215,6 +226,8 @@ const foo = await promiseAllSettledWithTimeout;
 <div id='id-section1-3-6'></div>
 
 ### Passing a timeoutPromise to a timeoutPromise
+
+<br />
 
 ```ts
 const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000));
