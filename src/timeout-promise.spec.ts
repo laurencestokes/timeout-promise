@@ -1,6 +1,17 @@
+import { TimeoutError } from './timeout-error';
 import { timeoutPromise } from './timeout-promise';
 
+// I wanted to use jest.fakeTimers here but ran into issues: https://stackoverflow.com/questions/52177631/jest-timer-and-promise-dont-work-well-settimeout-and-async-function
+
 describe('Timeout promise utility', () => {
+
+    // This is to create a timeout that jest waits for before ending to avoid having open 
+    // promises/handles from the any existing timeouts. Annoyingly I couldn't find an elegant way to flush 
+    // the outstanding handles (promises) so this had to do.
+    afterAll(async () => {
+        await new Promise((resolve) => setTimeout(() => resolve('Cleaning up before jest'), 4500));
+    });
+
     describe('racing a single promise', () => {
         it('should succesfully invoke the (default) error if the promise being raced against does not resolve (or reject) within the timeout gestation', async () => {
             const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000));
@@ -187,7 +198,7 @@ describe('Timeout promise utility', () => {
                 },
                 {
                     status: 'rejected',
-                    reason: new Error('Timeout in timeoutPromise fn'),
+                    reason: new TimeoutError('Timeout in timeoutPromise fn'),
                 },
                 {
                     status: 'fulfilled',
@@ -195,7 +206,23 @@ describe('Timeout promise utility', () => {
                 },
             ];
 
-            await expect(promiseAllSettledWithTimeout).resolves.toStrictEqual(expectedResult);
+            await expect(promiseAllSettledWithTimeout).resolves.toEqual(expectedResult);
+        });
+    });
+
+    describe('error handling', () => {
+        it('should throw an error of type "TimeoutError" if the timeout is hit', async () => {
+            const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000));
+            await expect(timeoutPromise({ promise, timeout: 2000 })).rejects.toThrow(TimeoutError);
+        });
+    });
+
+    describe('passing a timeoutPromise to timeoutPromise', () => {
+        it('should handle passing a timeoutPromise to itself, taking the timeout fail of whichever fails first', async () => {
+            const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000));
+            const tPromise = timeoutPromise({ promise, timeout: 2000, errorMessage: 'inner timeout promise' });
+            await expect(timeoutPromise({ promise: tPromise, timeout: 1000, errorMessage: 'outer timeout promise' })).rejects.toThrow(new TimeoutError('outer timeout promise'));
+            await expect(timeoutPromise({ promise: tPromise, timeout: 3000, errorMessage: 'outer timeout promise' })).rejects.toThrow(new TimeoutError('inner timeout promise'));
         });
     });
 });

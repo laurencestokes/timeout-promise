@@ -1,3 +1,5 @@
+import { TimeoutError } from './timeout-error';
+
 function timeoutPromise<T>({
     promise,
     timeout,
@@ -11,7 +13,7 @@ function timeoutPromise<T>({
 
     return Promise.race([
         new Promise((_, reject) => {
-            timer = setTimeout(() => reject(new Error(errorMessage ?? 'Timeout in timeoutPromise fn')), timeout);
+            timer = setTimeout(() => reject(new TimeoutError(errorMessage ?? 'Timeout in timeoutPromise fn')), timeout);
             return timer;
         }),
         promise.then((value: T) => {
