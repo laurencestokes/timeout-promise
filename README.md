@@ -45,11 +45,13 @@
 <br />
 
 <div id='id-section1'></div>
+
 ## 🚀 Quick start guide
 
 <hr />
 
 <div id='id-section1-1'></div>
+
 ## Installing
 
 ```
@@ -57,6 +59,7 @@ npm i promise-race-typescript
 ```
 
 <div id='id-section1-2'></div>
+
 ## Importing
 
 ```ts
@@ -64,6 +67,7 @@ import { timeoutPromise } from 'promise-race-typescript';
 ```
 
 <div id='id-section1-3'></div>
+
 ## Usage
 
 You can race single promises, promise.all, promise.allSettled with the utility. You can combine it with promise.allSettled
@@ -73,6 +77,7 @@ As it returns a promise, you can also pass a timeoutPromise to a timeoutPromise.
 Some examples are presented below:
 
 <div id='id-section1-3-1'></div>
+
 ### Typing the returned promise using Typescript generics
 
 ```ts
@@ -81,6 +86,7 @@ await timeoutPromise<number>({ promise, timeout: 2000, message: 'foo' })); // co
 ```
 
 <div id='id-section1-3-2'></div>
+
 ### Single Promise
 
 ```ts
@@ -119,6 +125,7 @@ await timeoutPromise({
 ```
 
 <div id='id-section1-3-4'></div>
+
 ### Promise.allSettled
 
 ```ts
@@ -160,6 +167,7 @@ const foo = await timeoutPromise({
 ```
 
 <div id='id-section1-3-5'></div>
+
 ### Combining timeoutPromise with Promise.allSettled
 
 ```ts
@@ -205,6 +213,7 @@ const foo = await promiseAllSettledWithTimeout;
 ```
 
 <div id='id-section1-3-6'></div>
+
 ### Passing a timeoutPromise to a timeoutPromise
 
 ```ts
@@ -216,11 +225,13 @@ timeoutPromise({ promise: tPromise, timeout: 3000, errorMessage: 'outer timeout 
 
 <br />
 <div id='id-section2'></div>
+
 ## 📝 Contributing Code
 
 <hr />
 
 <div id='id-section2-1'></div>
+
 ### How to contribute summary
 
 -   Create a branch from the `develop` branch and submit a Pull Request (PR)
@@ -229,6 +240,7 @@ timeoutPromise({ promise: tPromise, timeout: 3000, errorMessage: 'outer timeout 
 -   Use a sensible number of commit messages
 
 <div id='id-section2-2'></div>
+
 ### Version Bumping
 
 Our versioning uses [SemVer](https://semver.org/) and our commits follow the [Conventional Commits](https://www.conventionalcommits.org/en/about/) specification.
@@ -244,6 +256,7 @@ Our versioning uses [SemVer](https://semver.org/) and our commits follow the [Co
 <br />
 
 <div id='id-section3'></div>
+
 ## ✅ Testing
 
 <hr />
@@ -262,6 +275,7 @@ Our versioning uses [SemVer](https://semver.org/) and our commits follow the [Co
 <br />
 
 <div id='id-section4'></div>
+
 ## 📘 Changelog
 
 <hr />
