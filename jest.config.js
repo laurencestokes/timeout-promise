@@ -6,11 +6,11 @@ module.exports = {
         '!**/*.d.ts',
         '!**/node_modules/**',
     ],
-    coveragePathIgnorePatterns: ['node_modules', '.mock.ts'],
+    coveragePathIgnorePatterns: ['node_modules', '.mock.ts', 'dist'],
     coverageReporters: ['json-summary', 'clover', 'json', 'lcov', ['text', { skipFull: true }]],
     modulePaths: ['<rootDir>/'],
     moduleNameMapper: {},
-    testPathIgnorePatterns: ['<rootDir>/node_modules/'],
+    testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/'],
     transform: {
         '^.+\\.(ts|tsx)?$': 'ts-jest',
         '^.+\\.(js|jsx)$': 'babel-jest',
