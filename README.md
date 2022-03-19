@@ -9,14 +9,17 @@
 
 <br/>
 <p align="center">
-    <img src="https://raw.githubusercontent.com/LaurenceStokes/timeout-promise/main/readme-gif.gif" alt="The flash gif">
+    <img src="https://raw.githubusercontent.com/LaurenceStokes/timeout-promise/main/readme-gif.gif" alt="The flash gif" />
 </p>
 
 <br />
 
 <p align="center">
     <a href="https://github.com/LaurenceStokes/timeout-promise/actions/workflows/validate.yml" target="_blank">
-        <img src="https://github.com/LaurenceStokes/timeout-promise/actions/workflows/validate.yml/badge.svg" alt="CI pipeline badge">
+        <img src="https://github.com/LaurenceStokes/timeout-promise/actions/workflows/validate.yml/badge.svg" alt="CI pipeline badge" />
+    </a>
+    <a href="https://www.npmjs.com/package/promise-race-typescript" target="_blank">
+        <img src="https://img.shields.io/npm/v/promise-race-typescript.svg" alt="npmjs promise-race-typescript" />
     </a>
 </p>
 
