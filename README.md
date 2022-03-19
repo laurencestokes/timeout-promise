@@ -2,6 +2,11 @@
     <h1>⚡ Promise Race Typescript </h1>
 </div>
 
+<p align="center">
+    A simple Typescript wrapper for Promise.race that takes a promise to race against (e.g. a fetch api request), a timeout period in ms (e.g. 6000 for 6 seconds) and an optional error message 
+    to be displayed when/if the promise is rejected because the timeout is hit. As it's typescript, the return type of the promise can be set using generics. 
+</p>
+
 <br/>
 <p align="center">
     <img src="https://raw.githubusercontent.com/LaurenceStokes/timeout-promise/main/readme-gif.gif" alt="The flash gif">
@@ -195,10 +200,10 @@ Our versioning uses [SemVer](https://semver.org/) and our commits follow the [Co
 
 <hr />
 
-![Coverage lines](./badges/badge-lines.svg)
-![Coverage functions](./badges/badge-functions.svg)
-![Coverage branches](./badges/badge-branches.svg)
-![Coverage statements](./badges/badge-statements.svg)
+![Coverage lines](https://raw.githubusercontent.com/LaurenceStokes/timeout-promise/main/badges/badge-lines.svg)
+![Coverage functions](https://raw.githubusercontent.com/LaurenceStokes/timeout-promise/main/badges/badge-functions.svg)
+![Coverage branches](https://raw.githubusercontent.com/LaurenceStokes/timeout-promise/main/badges/badge-branches.svg)
+![Coverage statements](https://raw.githubusercontent.com/LaurenceStokes/timeout-promise/main/badges/badge-statements.svg)
 
 1. Clone the repository
 
