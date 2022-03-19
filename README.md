@@ -23,27 +23,56 @@
     </a>
 </p>
 
+# Table of Contents
+
+1. [Quick start guide](#id-section1)
+    1. [Installing](#id-section1-1)
+    2. [Importing](#id-section1-2)
+    3. [Usage](#id-section1-3)
+        1. [Typing the returned promise using typescript generics](#id-section1-3-1)
+        2. [Single Promise](#id-section1-3-2)
+        3. [Promise.all](#id-section1-3-3)
+        4. [Promise.allSettled](#id-section1-3-4)
+        5. [Combining timeoutPromise with Promise.allSettled](#id-section1-3-5)
+        6. [Passing a timeoutPromise to a timeoutPromise](#id-section1-3-6)
+2. [Contributing Code](#id-section2)
+    1. [How to contribute summary](#id-section2-1)
+    2. [Version Bumping](#id-section2-2)
+3. [Testing](#id-section3)
+4. [Changelog](#id-section4)
+
+<br />
+<br />
+
+<div id='id-section1'></div>
 ## 🚀 Quick start guide
 
 <hr />
 
+<div id='id-section1-1'></div>
 ## Installing
 
 ```
 npm i promise-race-typescript
 ```
 
+<div id='id-section1-2'></div>
 ## Importing
 
 ```ts
 import { timeoutPromise } from 'promise-race-typescript';
 ```
 
+<div id='id-section1-3'></div>
 ## Usage
 
 You can race single promises, promise.all, promise.allSettled with the utility. You can combine it with promise.allSettled
-if you don't want to reject the promise.allSettled array of promises but be aware the failure was a timeout in one of the promises in the given array of promises. Some examples are presented below:
+if you don't want to reject the promise.allSettled array of promises but be aware the failure was a timeout in one of the promises in the given array of promises.
+As it returns a promise, you can also pass a timeoutPromise to a timeoutPromise.
 
+Some examples are presented below:
+
+<div id='id-section1-3-1'></div>
 ### Typing the returned promise using Typescript generics
 
 ```ts
@@ -51,16 +80,18 @@ const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3
 await timeoutPromise<number>({ promise, timeout: 2000, message: 'foo' })); // compile time error (Promise<number> cannot be assigned to type Promise<string>)
 ```
 
+<div id='id-section1-3-2'></div>
 ### Single Promise
 
 ```ts
 const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000));
-await timeoutPromise({ promise, timeout: 2000, message: 'foo' })); // rejects with 'foo'
+await timeoutPromise({ promise, timeout: 2000, message: 'foo' })); // rejects with new TimeoutError('foo')
 
 const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000));
 await timeoutPromise({ promise, timeout: 10000, message: 'foo' })); // resolves with 'resolved'
 ```
 
+<div id='id-section1-3-3'></div>
 ### Promise.all
 
 ```ts
@@ -84,9 +115,10 @@ await timeoutPromise({
     promise: promiseAll,
     timeout: 2500,
     errorMessage: 'test error',
-}); // rejects 'test error'
+}); // rejects with new TimeoutError('test error')
 ```
 
+<div id='id-section1-3-4'></div>
 ### Promise.allSettled
 
 ```ts
@@ -98,7 +130,7 @@ await timeoutPromise({
     promise: promiseAllSettled,
     timeout: 2500,
     errorMessage: 'test error',
-}); // rejects 'test error'
+}); // rejects with new TimeoutError('test error')
 
 const promises = [1, 2, 3].map(
     (value) => new Promise((resolve) => setTimeout(() => resolve(Math.pow(value, 2)), value))
@@ -127,6 +159,7 @@ const foo = await timeoutPromise({
 // ];
 ```
 
+<div id='id-section1-3-5'></div>
 ### Combining timeoutPromise with Promise.allSettled
 
 ```ts
@@ -162,7 +195,7 @@ const foo = await promiseAllSettledWithTimeout;
 //     },
 //     {
 //         status: 'rejected',
-//         reason: new Error('Timeout in timeoutPromise fn'),
+//         reason: new TimeoutError('Timeout in timeoutPromise fn'),
 //     },
 //     {
 //         status: 'fulfilled',
@@ -171,12 +204,23 @@ const foo = await promiseAllSettledWithTimeout;
 // ];
 ```
 
-<br />
+<div id='id-section1-3-6'></div>
+### Passing a timeoutPromise to a timeoutPromise
 
+```ts
+const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000));
+const tPromise = timeoutPromise({ promise, timeout: 2000, errorMessage: 'inner timeout promise' });
+timeoutPromise({ promise: tPromise, timeout: 1000, errorMessage: 'outer timeout promise' }); // rejects with new TimeoutError('outer timeout promise')
+timeoutPromise({ promise: tPromise, timeout: 3000, errorMessage: 'outer timeout promise' }); // rejects with new TimeoutError('innner timeout promise')
+```
+
+<br />
+<div id='id-section2'></div>
 ## 📝 Contributing Code
 
 <hr />
 
+<div id='id-section2-1'></div>
 ### How to contribute summary
 
 -   Create a branch from the `develop` branch and submit a Pull Request (PR)
@@ -184,6 +228,7 @@ const foo = await promiseAllSettledWithTimeout;
 -   Use sensible commit messages which follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) specification.
 -   Use a sensible number of commit messages
 
+<div id='id-section2-2'></div>
 ### Version Bumping
 
 Our versioning uses [SemVer](https://semver.org/) and our commits follow the [Conventional Commits](https://www.conventionalcommits.org/en/about/) specification.
@@ -198,6 +243,7 @@ Our versioning uses [SemVer](https://semver.org/) and our commits follow the [Co
 
 <br />
 
+<div id='id-section3'></div>
 ## ✅ Testing
 
 <hr />
@@ -215,6 +261,7 @@ Our versioning uses [SemVer](https://semver.org/) and our commits follow the [Co
 
 <br />
 
+<div id='id-section4'></div>
 ## 📘 Changelog
 
 <hr />
