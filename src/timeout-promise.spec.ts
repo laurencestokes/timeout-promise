@@ -4,9 +4,8 @@ import { timeoutPromise } from './timeout-promise';
 // I wanted to use jest.fakeTimers here but ran into issues: https://stackoverflow.com/questions/52177631/jest-timer-and-promise-dont-work-well-settimeout-and-async-function
 
 describe('Timeout promise utility', () => {
-
-    // This is to create a timeout that jest waits for before ending to avoid having open 
-    // promises/handles from the any existing timeouts. Annoyingly I couldn't find an elegant way to flush 
+    // This is to create a timeout that jest waits for before ending to avoid having open
+    // promises/handles from the any existing timeouts. Annoyingly I couldn't find an elegant way to flush
     // the outstanding handles (promises) so this had to do.
     afterAll(async () => {
         await new Promise((resolve) => setTimeout(() => resolve('Cleaning up before jest'), 4500));
@@ -221,8 +220,12 @@ describe('Timeout promise utility', () => {
         it('should handle passing a timeoutPromise to itself, taking the timeout fail of whichever fails first', async () => {
             const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000));
             const tPromise = timeoutPromise({ promise, timeout: 2000, errorMessage: 'inner timeout promise' });
-            await expect(timeoutPromise({ promise: tPromise, timeout: 1000, errorMessage: 'outer timeout promise' })).rejects.toThrow(new TimeoutError('outer timeout promise'));
-            await expect(timeoutPromise({ promise: tPromise, timeout: 3000, errorMessage: 'outer timeout promise' })).rejects.toThrow(new TimeoutError('inner timeout promise'));
+            await expect(
+                timeoutPromise({ promise: tPromise, timeout: 1000, errorMessage: 'outer timeout promise' })
+            ).rejects.toThrow(new TimeoutError('outer timeout promise'));
+            await expect(
+                timeoutPromise({ promise: tPromise, timeout: 3000, errorMessage: 'outer timeout promise' })
+            ).rejects.toThrow(new TimeoutError('inner timeout promise'));
         });
     });
 });
