@@ -1,3 +1,12 @@
+# [2.1.0](https://github.com/LaurenceStokes/timeout-promise/compare/v2.0.0...v2.1.0) (2022-03-19)
+
+
+### Bug Fixes
+
+* removed jest.config.js from ts config and added to .eslintignore so it won't be included in dist ([2c92357](https://github.com/LaurenceStokes/timeout-promise/commit/2c9235734fe56e5a205d49b8824276d246b45775))
+
+
+
 # [2.0.0](https://github.com/LaurenceStokes/timeout-promise/compare/v1.0.4...v2.0.0) (2022-03-19)
 
 
