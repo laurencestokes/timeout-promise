@@ -1,8 +1,28 @@
+## [1.0.3](https://github.com/LaurenceStokes/timeout-promise/compare/v1.0.2...v1.0.3) (2022-03-19)
+
+
+### Documentation
+
+* update README ([f0fa22f](https://github.com/LaurenceStokes/timeout-promise/commit/f0fa22f326bce43aa6b3edac1d294676c9e1f563))
+* updated README ([298d487](https://github.com/LaurenceStokes/timeout-promise/commit/298d487464988c8bedd26761af2b6edb64668c9b))
+
+
+
 ## [1.0.2](https://github.com/LaurenceStokes/timeout-promise/compare/v1.0.1...v1.0.2) (2022-03-19)
+
+
+### Documentation
+
+* updated README ([15e38ec](https://github.com/LaurenceStokes/timeout-promise/commit/15e38ec58a39212a3ba9660a6ad19c22367202cc))
 
 
 
 ## [1.0.1](https://github.com/LaurenceStokes/timeout-promise/compare/v1.0.0...v1.0.1) (2022-03-18)
+
+
+### Documentation
+
+* updated README ([316c88f](https://github.com/LaurenceStokes/timeout-promise/commit/316c88fd449809e89e06fcd30c5d0fd0e44874b1))
 
 
 
