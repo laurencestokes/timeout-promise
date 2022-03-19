@@ -1,3 +1,18 @@
+# [2.0.0](https://github.com/LaurenceStokes/timeout-promise/compare/v1.0.4...v2.0.0) (2022-03-19)
+
+
+### Documentation
+
+* updated readme and added TOC ([a0f4be5](https://github.com/LaurenceStokes/timeout-promise/commit/a0f4be57cd00d871325f9c1ccdb04bdd0114c865))
+* updated README with npm version badge ([90df3b1](https://github.com/LaurenceStokes/timeout-promise/commit/90df3b12d174f3544d8f2181ef3b25749daf3698))
+
+
+### Features
+
+* added custom error class - timeout error - for errors in the timeout rejection ([09aac98](https://github.com/LaurenceStokes/timeout-promise/commit/09aac98dc30f30edc7b474245242dd517f6a5ffc))
+
+
+
 ## [1.0.4](https://github.com/LaurenceStokes/timeout-promise/compare/v1.0.3...v1.0.4) (2022-03-19)
 
 
