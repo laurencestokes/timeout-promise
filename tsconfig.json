@@ -16,8 +16,8 @@
         "jsx": "preserve",
         "types": ["jest", "node"],
         "outDir": "dist",
-        "declaration": true,
+        "declaration": true
     },
-    "include": ["**/*.ts"],
-    "exclude": ["node_modules", "**/*.spec.ts"]
+    "include": ["**/*.ts", "jest.config.js"],
+    "exclude": ["node_modules", "dist"]
 }

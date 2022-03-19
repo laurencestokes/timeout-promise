@@ -19,7 +19,7 @@
         "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
         "test:badges": "npm run test-coverage  && jest-coverage-badges",
         "test:readme-badges": "npm run test:badges && jest-coverage-badges output badges",
-        "prepublish": "tsc"
+        "prepublish": "rm -rf dist && tsc"
     },
     "files": [
         "dist/"
