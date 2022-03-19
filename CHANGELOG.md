@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/LaurenceStokes/timeout-promise/compare/v1.0.3...v1.0.4) (2022-03-19)
+
+
+### Continuous Integration
+
+* small fixes for ci pipeline/scripts ([84d97a4](https://github.com/LaurenceStokes/timeout-promise/commit/84d97a4cf40b22d5a9f7b4d0ef2048235855da7e))
+
+
+
 ## [1.0.3](https://github.com/LaurenceStokes/timeout-promise/compare/v1.0.2...v1.0.3) (2022-03-19)
 
 
