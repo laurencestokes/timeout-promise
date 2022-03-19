@@ -18,6 +18,6 @@
         "outDir": "dist",
         "declaration": true
     },
-    "include": ["**/*.ts", "**/*.spec.ts", "jest.config.js"],
-    "exclude": ["node_modules", "dist"]
+    "include": ["**/*.ts", "**/*.spec.ts"],
+    "exclude": ["node_modules", "dist", "jest.config.js"]
 }
