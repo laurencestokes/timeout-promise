@@ -216,6 +216,6 @@ Our versioning uses [SemVer](https://semver.org/) and our commits follow the [Co
 
 <hr />
 
-See [CHANGELOG.md](CHANGELOG.md)
+See [CHANGELOG.md](https://github.com/LaurenceStokes/timeout-promise/blob/main/CHANGELOG.md)
 
 <br />
