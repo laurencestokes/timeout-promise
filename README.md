@@ -249,8 +249,8 @@ const foo = await promiseAllSettledWithTimeout;
 ```ts
 const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000));
 const tPromise = timeoutPromise({ promise, timeout: 2000, errorMessage: 'inner timeout promise' });
-timeoutPromise({ promise: tPromise, timeout: 1000, errorMessage: 'outer timeout promise' }); // rejects with new TimeoutError('outer timeout promise')
-timeoutPromise({ promise: tPromise, timeout: 3000, errorMessage: 'outer timeout promise' }); // rejects with new TimeoutError('innner timeout promise')
+await timeoutPromise({ promise: tPromise, timeout: 1000, errorMessage: 'outer timeout promise' }); // rejects with new TimeoutError('outer timeout promise')
+await timeoutPromise({ promise: tPromise, timeout: 3000, errorMessage: 'outer timeout promise' }); // rejects with new TimeoutError('innner timeout promise')
 ```
 
 <div id='id-section1-3-7'></div>
@@ -259,7 +259,7 @@ timeoutPromise({ promise: tPromise, timeout: 3000, errorMessage: 'outer timeout 
 
 <br />
 
-Simple pass through the controller to the timeoutPromise.
+Simply pass through the controller to the timeoutPromise.
 
 ```ts
 const ac = new AbortController();
@@ -268,7 +268,7 @@ const { signal } = ac.signal;
 
 const promise = fetch(someUrl, { signal }).then((response) => response.json());
 
-const promiseWithAbortController = timeoutPromise({
+const withAbortController = await timeoutPromise({
     promise,
     timeout: 2000,
     errorMessage: 'an error message',
