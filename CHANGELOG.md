@@ -1,3 +1,7 @@
+## [2.2.1](https://github.com/LaurenceStokes/timeout-promise/compare/v2.2.0...v2.2.1) (2022-03-20)
+
+
+
 # [2.2.0](https://github.com/LaurenceStokes/timeout-promise/compare/v2.1.2...v2.2.0) (2022-03-20)
 
 
