@@ -1,6 +1,6 @@
 {
     "name": "promise-race-typescript",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "private": false,
     "main": "dist/timeout-promise.js",
     "types": "dist/timeout-promise.d.ts",
@@ -31,7 +31,7 @@
         "abort controller",
         "timeout promise",
         "timeout"
-      ],
+    ],
     "dependencies": {},
     "devDependencies": {
         "@types/jest": "^27.4.1",
