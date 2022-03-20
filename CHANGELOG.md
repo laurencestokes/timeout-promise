@@ -1,3 +1,12 @@
+## [2.2.2](https://github.com/LaurenceStokes/timeout-promise/compare/v2.2.1...v2.2.2) (2022-03-20)
+
+
+### Documentation
+
+* updated code example in readme ([77a2e53](https://github.com/LaurenceStokes/timeout-promise/commit/77a2e5379039085d43056010161c022cb98ee863))
+
+
+
 ## [2.2.1](https://github.com/LaurenceStokes/timeout-promise/compare/v2.2.0...v2.2.1) (2022-03-20)
 
 
