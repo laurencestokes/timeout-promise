@@ -1,6 +1,6 @@
 {
     "name": "promise-race-typescript",
-    "version": "2.1.2",
+    "version": "2.2.0",
     "private": false,
     "main": "dist/timeout-promise.js",
     "types": "dist/timeout-promise.d.ts",
