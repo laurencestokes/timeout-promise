@@ -3,8 +3,8 @@
 </div>
 
 <p align="center">
-    A simple Typescript wrapper for Promise.race that takes a promise to race against (e.g. a fetch api request), a timeout period in ms (e.g. 6000 for 6 seconds) and an optional error message 
-    to be displayed when/if the promise is rejected because the timeout is hit. As it's typescript, the return type of the promise can be set using generics. 
+    A simple Typescript wrapper for Promise.race that takes a promise to race against (e.g. a fetch api request), a timeout period in ms (e.g. 6000 for 6 seconds), an optional error message 
+    to be displayed when/if the promise is rejected because the timeout is hit, and an optional abortController object. As it's typescript, the return type of the promise can be set using generics.
 </p>
 
 <br/>
@@ -35,6 +35,7 @@
         4. [Promise.allSettled](#id-section1-3-4)
         5. [Combining timeoutPromise with Promise.allSettled](#id-section1-3-5)
         6. [Passing a timeoutPromise to a timeoutPromise](#id-section1-3-6)
+        7. [Using abortController with timeoutPromise](#id-section1-3-7)
 2. [Contributing Code](#id-section2)
     1. [How to contribute summary](#id-section2-1)
     2. [Version Bumping](#id-section2-2)
@@ -55,7 +56,9 @@
 ## Installing
 
 ```
+
 npm i promise-race-typescript
+
 ```
 
 <div id='id-section1-2'></div>
@@ -73,8 +76,22 @@ import { timeoutPromise } from 'promise-race-typescript';
 You can race single promises, promise.all, promise.allSettled with the utility. You can combine it with promise.allSettled
 if you don't want to reject the promise.allSettled array of promises but be aware the failure was a timeout in one of the promises in the given array of promises.
 As it returns a promise, you can also pass a timeoutPromise to a timeoutPromise.
+Timeout promise (version 2.2.0 upwards) also accepts an abortController object instance, which could be paired with a fetch request promise (for example) to call .abort() on the abortController object instace
+associated with the given fetch if the timeout is hit.
 
-Some examples are presented below:
+Example usage with an abortController object:
+
+```ts
+const ac = new AbortController();
+
+const { signal } = ac.signal;
+
+const promise = fetch(someUrl, { signal }).then((response) => response.json());
+
+const example = timeoutPromise({ promise, timeout: 2000, errorMessage: 'your error message', abortController: ac });
+```
+
+Some more detailed examples are presented below:
 
 <div id='id-section1-3-1'></div>
 
@@ -234,6 +251,29 @@ const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3
 const tPromise = timeoutPromise({ promise, timeout: 2000, errorMessage: 'inner timeout promise' });
 timeoutPromise({ promise: tPromise, timeout: 1000, errorMessage: 'outer timeout promise' }); // rejects with new TimeoutError('outer timeout promise')
 timeoutPromise({ promise: tPromise, timeout: 3000, errorMessage: 'outer timeout promise' }); // rejects with new TimeoutError('innner timeout promise')
+```
+
+<div id='id-section1-3-7'></div>
+
+### Using abortController with timeoutPromise
+
+<br />
+
+Simple pass through the controller to the timeoutPromise.
+
+```ts
+const ac = new AbortController();
+
+const { signal } = ac.signal;
+
+const promise = fetch(someUrl, { signal }).then((response) => response.json());
+
+const promiseWithAbortController = timeoutPromise({
+    promise,
+    timeout: 2000,
+    errorMessage: 'an error message',
+    abortController: ac,
+});
 ```
 
 <br />

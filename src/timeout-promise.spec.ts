@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { TimeoutError } from './timeout-error';
 import { timeoutPromise } from './timeout-promise';
 
@@ -226,6 +229,62 @@ describe('Timeout promise utility', () => {
             await expect(
                 timeoutPromise({ promise: tPromise, timeout: 3000, errorMessage: 'outer timeout promise' })
             ).rejects.toThrow(new TimeoutError('inner timeout promise'));
+        });
+    });
+
+    describe('passing an abort controller through the timeout', () => {
+        beforeEach(() => {
+            jest.clearAllMocks();
+        });
+
+        it('should call the abort controller abort() if the timeout is hit and an abortController instance is passed through to the timeoutPromise', async () => {
+            const ac = new AbortController();
+            const abortSpy = jest.spyOn(ac, 'abort');
+            const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000));
+            try {
+                await timeoutPromise({ promise, timeout: 2000, abortController: ac });
+                expect(abortSpy).toHaveBeenCalled();
+            } catch (e) {
+                return undefined;
+            }
+        });
+
+        it('should not call the abort controller abort() if the timeout isnt hit and an abortController instance is passed through to the timeoutPromise', async () => {
+            const ac = new AbortController();
+            const abortSpy = jest.spyOn(ac, 'abort');
+            const promise = new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000));
+            try {
+                await timeoutPromise({ promise, timeout: 4000, abortController: ac });
+                expect(abortSpy).not.toHaveBeenCalled();
+            } catch (e) {
+                return undefined;
+            }
+        });
+
+        it('should not call the abort controller abort() if the promise rejects normally within the timeout gestation', async () => {
+            const ac = new AbortController();
+            const abortSpy = jest.spyOn(ac, 'abort');
+            const promise = new Promise((_, reject) => setTimeout(() => reject('rejected'), 3000));
+            try {
+                await timeoutPromise({ promise, timeout: 4000, abortController: ac });
+                expect(abortSpy).not.toHaveBeenCalled();
+            } catch (e) {
+                expect(e).toEqual('rejected');
+                return undefined;
+            }
+        });
+
+        it('should not call the abort controller abort() if the promise resolves normally within the timeout gestation', async () => {
+            const ac = new AbortController();
+            const abortSpy = jest.spyOn(ac, 'abort');
+            const promise = new Promise((resolve) => setTimeout(() => resolve('lemon'), 3000));
+            try {
+                const lemon = await timeoutPromise({ promise, timeout: 4000, abortController: ac });
+                expect(lemon).toEqual('lemon');
+                expect(abortSpy).not.toHaveBeenCalled();
+            } catch (e) {
+                return undefined;
+            }
         });
     });
 });
