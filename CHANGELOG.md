@@ -1,3 +1,12 @@
+# [2.2.0](https://github.com/LaurenceStokes/timeout-promise/compare/v2.1.2...v2.2.0) (2022-03-20)
+
+
+### Features
+
+* added abortController support ([065e9e7](https://github.com/LaurenceStokes/timeout-promise/commit/065e9e75b092decf3bb0d092a3bd2a5a11c2cfbf))
+
+
+
 ## [2.1.2](https://github.com/LaurenceStokes/timeout-promise/compare/v2.1.1...v2.1.2) (2022-03-19)
 
 
