@@ -8,10 +8,10 @@ import { timeoutPromise } from './timeout-promise';
 
 describe('Timeout promise utility', () => {
     // This is to create a timeout that jest waits for before ending to avoid having open
-    // promises/handles from the any existing timeouts. Annoyingly I couldn't find an elegant way to flush
+    // promises/handles from any of the existing timeouts. Annoyingly I couldn't find an elegant way to flush
     // the outstanding handles (promises) so this had to do.
     afterAll(async () => {
-        await new Promise((resolve) => setTimeout(() => resolve('Cleaning up before jest'), 4500));
+        await new Promise((resolve) => setTimeout(() => resolve('Cleaning up before jest exits'), 4500));
     });
 
     describe('racing a single promise', () => {
